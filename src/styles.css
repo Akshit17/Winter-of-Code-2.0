@@ -1,4 +1,4 @@
-* {
+/* * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -8,11 +8,26 @@
     background-color: rgb(68, 130, 158);
     overflow: hidden;
     font-family: sans-serif;
-  }
-  
-  canvas {
+  } */
+  body
+{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: "Roboto";
+    list-style: none;
+    box-sizing: border-box;
+    
+}
+.groovestreet-home
+{
+    height: 120vh;
+    background: rgb(94, 182, 255);
+    /* overflow: hidden; */
+}
+  /* canvas {
     display: block
-  }
+  } */
   
   
   #container {
@@ -20,6 +35,51 @@
     height: 100vw;
   }
   
+  .layer1 {
+    margin-left: -400px;
+}
+
+  .layer2 {
+    margin-left: -300px;
+}
+
+  .layer3 {
+    margin-left: -500px;
+}
+
+  .layer4 {
+    margin-left: -500px;
+}
+
+  .layer5 {
+    margin-left: -500px;
+}
+
+  .layer6  {
+    margin-left: -500px;
+}
+
+  .layer7 {
+    margin-left: -500px;
+}
+
+#About
+{
+    background: rgb(255, 221, 221);
+    margin-top: -50px;
+}
+
+.writings
+{
+    margin-top: -800px;
+    margin-left: 1400px;
+}
+
+.writings h1
+{
+    font-size: 60px;
+}
+
   /* canvas {
     position: fixed;
     top: 0;
