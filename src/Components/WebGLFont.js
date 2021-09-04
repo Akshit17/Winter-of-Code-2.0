@@ -53,22 +53,10 @@ export default class WebGLFont {
     );
     this.camera.position.z = this.vars.zoom;
 
-    // Renderer
-    // this.renderer = new THREE.WebGLRenderer({
-    //   canvas: document.querySelector("#app"),
-    //   antialias: true
-    // });
-   // // this.renderer = new THREE.WebGLRenderer();
-   // // this.renderer.setClearColor(background);
-   // // this.renderer.setSize(window.innerWidth, window.innerHeight);
-   // // this.renderer.setPixelRatio(window.devicePixelRatio);
-
+  
    this.width = this.container.offsetWidth;
    this.height = this.container.offsetHeight;
-  //  this.renderer = new THREE.WebGLRenderer();
-  //  this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-  //  this.renderer.setSize(this.width, this.height);
-  //  this.renderer.setClearColor(0x333333, 1); 
+
   this.renderer = new THREE.WebGLRenderer();
    this.renderer.setClearColor(background);
    this.renderer.setSize(window.innerWidth, window.innerHeight);
@@ -77,10 +65,10 @@ export default class WebGLFont {
 
    this.container.appendChild(this.renderer.domElement);
 
-    // Clock
+
     this.clock = new THREE.Clock();
 
-    // Controls
+    // 3d vieW controls . TURN OFF WHEN DEPLOYING !!
     this.controls = new OrbitControls(this.camera, this.renderer.domElement);
 
     this.camera.position.set(-100, -15, 0);
@@ -89,9 +77,9 @@ export default class WebGLFont {
     this.mouse = {x:0,y:0}
     this.isPlaying = true;
 
-    // Load font files to initialize renderer
+    
     console.log(this.vars.index)
-    if(this.vars.index == 6)
+    if(this.vars.index == 2)                  // Index 2 requires xtra mehnat
     { 
       console.log("Enter on outsider")
       new THREE.TextureLoader().load(fontTexture,(t)=>{
@@ -117,7 +105,7 @@ export default class WebGLFont {
 
   loadBMF() 
   {
-    // Create geometry of packed glyphs
+    // Create geometry of packed glyphs (glyph means character/symbol but sophisticated)
     loadFont(fontFile, (err, font) => {
       this.geometry = createGeometry({
         font: font,
@@ -125,7 +113,7 @@ export default class WebGLFont {
       });
     });
 
-    // Load texture containing font glyphs
+    // Load texture containing font glyphs 
     this.loader = new THREE.TextureLoader();
     this.loader.load(fontAtlas, texture => {
       setTimeout(() => {
@@ -137,9 +125,7 @@ export default class WebGLFont {
 
   init(geometry, texture) 
   {
-    //this.createMesh(geometry, texture);
-    //MADE CHANGES HERE
-
+   
     this.material = new THREE.ShaderMaterial(
       threebm_MSDFShader({
         vertexShader: this.vars.vertex,
@@ -160,38 +146,14 @@ export default class WebGLFont {
     this.mesh.position.set(...this.vars.position);
     this.mesh.rotation.set(...this.vars.rotation);
     this.scene.add(this.mesh);
-      //
+
 
     this.onResize();
     window.addEventListener("resize", () => this.onResize(), false);
     this.render();
   }
 
-  // createMesh(geometry, texture) 
-  // {
-  //   // Material
-  //   this.material = new THREE.RawShaderMaterial(
-  //     MSDFShader({
-  //       vertexShader: this.vars.vertex,
-  //       fragmentShader: this.vars.fragment,
-  //       map: texture,
-  //       side: THREE.DoubleSide,
-  //       transparent: true,
-  //       //color: 0xff0000,
-  //       negate: false
-  //     })
-  //   );
-
-  //   // Create time variable from prestablished shader uniforms
-  //   this.material.uniforms.time = { type: "f", value: 0.0 };
-
-  //   // Mesh
-  //   this.mesh = new THREE.Mesh(geometry, this.material);
-  //   this.mesh.position.set(...this.vars.position);
-  //   this.mesh.rotation.set(...this.vars.rotation);
-  //   this.scene.add(this.mesh);
-  // }
-
+ 
   mouseEvents()
   {
     window.addEventListener('mousemove',(event)=>{
@@ -234,13 +196,7 @@ export default class WebGLFont {
       });
   
     
-    // Load texture containing font glyphs
-    // this.loader = new THREE.TextureLoader();
-    // this.loader.load(fontAtlas, texture => 
-    //   {
-    //   setTimeout(() => {
-    //     // this.init(this.geometry, texture);
-
+  
         this.material_msdf = new THREE.ShaderMaterial(
           MSDFShader({
             // vertexShader: this.vars.vertex,
@@ -250,27 +206,16 @@ export default class WebGLFont {
             transparent: true,
             color: 0xffffff
           }));
-        //console.log(this.material_msdf);
+     
 
-        // console.log(this.material.vertexShader)
-        // console.log(this.material.fragmentShader)
-    
-        // Create time variable from prestablished shader uniforms
-
-        //this.material_msdf.uniforms.time = { type: "f", value: 0.0 };
-    
-        // Mesh
         this.mesh_text = new THREE.Mesh(this.geometry, this.material_msdf);
         this.mesh_text.position.set(...this.vars.position);
         this.mesh_text.rotation.set(...this.vars.rotation);
         console.log(this.mesh_text);
-        this.scene.add(this.mesh_text);
-          //
+
   
         //this.render();
 
-    //   }, 1500);
-    // });
   }
 
   addObjects() 
