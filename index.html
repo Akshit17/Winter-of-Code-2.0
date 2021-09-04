@@ -7,10 +7,69 @@
 </head>
 
 <body>
-	<div id="container"></div>
+    <section id="Homepage" class="groovestreet-home">
 
-	<script src="src/index.js">
-	</script>
+        <div id = "container">  
+            <div></div>
+            <div data-depth="0.1" class="layer7">
+            <img src="./Assets/Parallax_landscape/Layer7.png" alt="" />
+            </div>
+            <div data-depth="0.15" class="layer6">
+            <img src="./Assets/Parallax_landscape/Layer6.png" alt="" />
+            </div>
+            <div data-depth="0.2" class="layer5">
+            <img src="./Assets/Parallax_landscape/Layer5.png" alt="" />
+            </div>
+            <div data-depth="0.21" class="layer4">
+            <img src="./Assets/Parallax_landscape/Layer4_unchanged.png" alt="" />
+            </div>
+            <div data-depth="0.21" class="layer4">
+            <img src="./Assets/Parallax_landscape/WATER.png" alt="" />
+            </div>
+            <div data-depth="0.3" class="layer3">
+            <img src="./Assets/Parallax_landscape/Layer3.png" alt="" />
+            </div>
+            <div data-depth="0.2" class="layer2">
+            <img src="./Assets/Parallax_landscape/Layer2.png" alt="" />
+            </div>
+            <div data-depth="0.35" limitY="true" class="layer1">
+            <img src="./Assets/Parallax_landscape/Layer1.png" alt="" />
+        </div>
+ 
+    </section>
+
+
+
+    <section id="About" class="about"> 
+       <div>
+            <img src="./Assets/About_papercut.png" alt="" />
+       </div>
+       <h1>ABOUT</h1>
+	</section>
+
+
+	<section id="Orgs"> 
+	</section>
+
+
+	<section id="Timeline"> 
+	</section>
+
+	<section id="Sponsors"> 
+	</section>
+
+    
+
+    
+
+	<script src="src/index.js"> </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+	<script> 
+		var scene = document.getElementById("container");
+		var parallaxInstance = new Parallax(scene, {scalarY: 0.0});
+		
+		console.log(Parallax)
+		</script>
 </body>
 
 </html>

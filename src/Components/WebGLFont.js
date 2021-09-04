@@ -57,8 +57,8 @@ export default class WebGLFont {
    this.width = this.container.offsetWidth;
    this.height = this.container.offsetHeight;
 
-  this.renderer = new THREE.WebGLRenderer();
-   this.renderer.setClearColor(background);
+  this.renderer = new THREE.WebGLRenderer({alpha: true});
+   //this.renderer.setClearColor(background);
    this.renderer.setSize(window.innerWidth, window.innerHeight);
    this.renderer.setPixelRatio(window.devicePixelRatio);
 
@@ -68,7 +68,7 @@ export default class WebGLFont {
 
     this.clock = new THREE.Clock();
 
-    // 3d vieW controls . TURN OFF WHEN DEPLOYING !!
+    // 3d vieW controls . TURN OFF WHEN DEPLOYING (cant gib user too much power)!!
    // this.controls = new OrbitControls(this.camera, this.renderer.domElement);
 
     this.camera.position.set(-100, -15, 0);

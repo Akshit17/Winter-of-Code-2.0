@@ -18,7 +18,7 @@ import fragment2 from "./fragment/fragment-02.glsl";
 
 export const shaders = [
   { vertex: vertex1, fragment: fragment1 },
-  { vertex: vertex2, fragment: fragment2 }
+  { vertex: vertex2, fragment: fragment2 },
 //   { vertex: vertex3, fragment: fragment3 },
 //   { vertex: vertex4, fragment: fragment4 },
 //   { vertex: vertex5, fragment: fragment5 },
