@@ -69,7 +69,7 @@ export default class WebGLFont {
     this.clock = new THREE.Clock();
 
     // 3d vieW controls . TURN OFF WHEN DEPLOYING !!
-    this.controls = new OrbitControls(this.camera, this.renderer.domElement);
+   // this.controls = new OrbitControls(this.camera, this.renderer.domElement);
 
     this.camera.position.set(-100, -15, 0);
     console.log(this.camera)
