@@ -14,8 +14,8 @@ console.log(threebm_MSDFShader)
 const font_json = require("../assests/manifold-msdf.json")
 const fontTexture = require("../assests/manifold-msdf.png")
 
-const fontFile = require("../assets/Lato-Black.fnt");
-const fontAtlas = require("../assets/Lato-Black.png");
+const fontFile = require("../assests/Lato-Black.fnt");
+const fontAtlas = require("../assests/Lato-Black.png");
 
 
 
@@ -79,7 +79,7 @@ export default class WebGLFont {
 
     
     console.log(this.vars.index)
-    if(this.vars.index == 2)                  // Index 2 requires xtra mehnat
+    if(this.vars.index == 1)                  // Index 1 shader requires xtra mehnat in implementation
     { 
       console.log("Enter on outsider")
       new THREE.TextureLoader().load(fontTexture,(t)=>{
@@ -212,7 +212,7 @@ export default class WebGLFont {
         this.mesh_text.position.set(...this.vars.position);
         this.mesh_text.rotation.set(...this.vars.rotation);
         console.log(this.mesh_text);
-
+        this.scene.add(this.mesh_text);
   
         //this.render();
 

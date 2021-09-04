@@ -1,6 +1,6 @@
 var assign = require('object-assign');
 
-import gradientTexture from './gradient-map.png';
+import gradientTexture from '../assests/gradient-map.png';
 
 module.exports = function createMSDFShader (opt) {
   opt = opt || {};
