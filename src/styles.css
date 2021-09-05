@@ -104,6 +104,8 @@
 .logo1 img
 {
     height: 100px;
+    margin-top: 00px;
+    margin-left: 1000px;
 }
 .logo2 img
 {
@@ -131,6 +133,11 @@
     margin-top: ;
     background: #94EB8D;
     height: 1080px;
+}
+
+.timeline_png img
+{
+    height: 1080px
 }
 
 #Sponsors
